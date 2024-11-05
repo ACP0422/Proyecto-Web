@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+}
+
+.header .logo {
+    font-size: 1.5rem;
+}
+
+.header .nav a {
+    color: #000;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+main {
+    padding: 4rem;
+}
+
+.catalogo {
+    display: flex;
+    margin-top: 20px;
+}
+
+.filtros {
+    width: 20%;
+    padding: 0 20px;
+    line-height: 1.5rem;
+    border-right:  0.1rem solid #2B2B2B;
+}
+
+.filtros h4 {
+    margin-top: 20px;
+}
+
+.filtros label {
+    margin-bottom: 10px;
+}
+
+.filtros input[type="search"] {
+    width: 100%; 
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #2B2B2B; 
+    outline: none;
+}
+
+
+.productos {
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 30px 10px;
+}
+
+.producto {
+    padding: 0 15px;
+    text-align: center;
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+}
+
+.producto h4 {
+    margin-top: 15px;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); 
+    z-index: 1;
+}
+
+.image-wrapper h4,
+.image-wrapper p {
+    position: absolute;
+    color: #fff;
+    z-index: 2;
+    text-align: left;
+    left: 2rem; 
+}
+
+.image-wrapper h4 {
+    bottom: 4rem; 
+    font-size: 24px;
+    margin: 0;
+}
+
+.image-wrapper p {
+    bottom: 2rem; 
+    font-size: 16px;
+    margin: 0;
+}
+
+.footer {
+    background-color: #2B2B2B;
+    color: #fff;
+    padding: 5rem;
+    text-align: left;
+}
+
+.footer .footer-nav a {
+    color: #fff;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.footer-nav {
+    border-bottom: 0.1rem solid #fff;
+    margin-bottom: 1rem; 
+}
+
+.footer-info {
+    margin-top: 3rem;
+    display: flex;
+    gap: 15px; 
+}
