@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    padding: 4rem;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo{
+    width: 120px; 
+    height: 120px; 
+    border-radius: 50%;
+    object-fit: cover; 
+}
+
+.logo-footer{
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    object-fit: cover; 
+    margin-bottom: 7rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+}
+
+.header .logo {
+    font-size: 1.5rem;
+}
+
+.header .nav a {
+    color: #000;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.header .nav a:hover {
+    color: rgb(166, 176, 166);
+}
+
+main {
+    padding: 4rem;
+}
+
+.catalogo {
+    display: flex;
+    margin-top: 20px;
+}
+
+
+.footer {
+    background-color: #2B2B2B;
+    color: #fff;
+    padding: 5rem;
+    text-align: left;
+}
+
+.footer .footer-nav a {
+    color: #fff;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.footer-nav {
+    border-bottom: 0.1rem solid #fff;
+    margin-bottom: 1rem; 
+}
+
+.footer-info {
+    margin-top: 3rem;
+    display: flex;
+    gap: 15px; 
+}
+
+.principal {
+    display: flex;
+    gap: 2rem; 
+    margin-top: 20px;
+}
+
+.info, .mapa{
+    width: 50% ;
+    padding: 0 20px;
+    line-height: 1.5rem;
+}
+
+.objetivo{
+    margin-top: 5rem;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.objetivo h2{
+    margin-top: 4rem;
+}
+
+.objetivo p{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+ul{
+    list-style-position: inside; 
+}
+
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 2rem;
+}
+
+.services {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+
+.service-cards {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background-color: #E0E0E0;
+    padding: 3rem;
+    width: 30%;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.service-card h3 {
+    font-size: 38px;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.service-card p, b {
+    margin-bottom: 2rem;
+    font-size: 20px;
+    text-align: left;
+}
+
+
+
+.icon {
+    background-color: #000000;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: left;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: rgba(128, 138, 128, 0.78);
+    transform: scale(1.1);
+}
+
+.footer .footer-nav a:hover{
+    color: rgb(17, 23, 17);
+}

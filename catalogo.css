@@ -8,6 +8,21 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.logo{
+    width: 120px; 
+    height: 120px; 
+    border-radius: 50%;
+    object-fit: cover; 
+}
+
+.logo-footer{
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    object-fit: cover; 
+    margin-bottom: 7rem;
+}
+
 .header {
     display: flex;
     justify-content: space-between;

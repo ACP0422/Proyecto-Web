@@ -9,6 +9,23 @@ body {
     line-height: 2.5rem;
 }
 
+.logo{
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%;
+    object-fit: cover; 
+}
+
+.logo-footer{
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%;
+    object-fit: cover; 
+    margin-bottom: 7rem;
+}
+
+
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -27,6 +44,10 @@ body {
     color: #fff;
     margin-left: 1rem;
     text-decoration: none;
+}
+
+.header .nav a:hover {
+    color: rgb(17, 23, 17);
 }
 
 .hero {
@@ -168,10 +189,15 @@ h2 {
     text-align: left;
 }
 
+
 .footer .footer-nav a {
     color: #fff;
     margin-right: 1rem;
     text-decoration: none;
+}
+
+.footer .footer-nav a:hover{
+    color: rgb(17, 23, 17);
 }
 
 .footer-nav {
@@ -185,3 +211,13 @@ h2 {
     gap: 15px; 
 }
 
+a{
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: rgba(128, 138, 128, 0.78);
+    transform: scale(1.1);
+}
