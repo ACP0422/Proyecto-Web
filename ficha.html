@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha descriptiva</title>
     <link rel="stylesheet" href="ficha.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" alt="flecha-detalles">
+
+    <script>
+        function toggleDetalles() {
+        const detallesDiv = document.querySelector('.detalles');
+        detallesDiv.classList.toggle('show');
+        }
+    </script>
 </head>
 <body>
     <header class="header">
-        <div class="logo">LOGO</div>
+        <div class="logo"> <a href="index.html"><img src="logo.jpg" class="logo"></a></div>
         <nav class="nav">
             <a href="index.html">Inicio</a>
-            <a href="plantas.html">Plantas</a>
-            <a href="contacto.html">Contacto</a>
+            <a href="catalogo.html">Plantas</a>
+            <a href="sobreNosotros.html">Sobre Nosotros</a>
         </nav>
     </header>
 
@@ -25,13 +33,24 @@
                     verdes con cortes distintivos. No solo añade un toque tropical a cualquier espacio, sino que 
                     ambién es fácil de cuidar. Ideal para quienes buscan una planta que combine estética y funcionalidad.</p>
 
-                <div class="detalles">
-                    <h3>Más detalles</h3>
-                    <ul>
-                        <li><strong>Familia y Especie:</strong> Araceae / Monstera</li>
-                        <li><strong>Tipo de luz:</strong> Luz indirecta brillante, tolera semisombra.</li>
-                        <li><strong>Tamaño:</strong> Hasta 3 metros</li>
-                    </ul>
+                    <div class="detalles">
+                        <h3>
+                          Más detalles
+                          <button class="flecha" onclick="toggleDetalles()"><i class="fas fa-chevron-down"></i></button>
+                        </h3>
+                        <ul id="detalles-content">
+                          <li><span>Familia y Especie</span> Araceae / Monstera</li>
+                          <li><span>Tipo de luz</span> Luz indirecta brillante, tolera semisombra.</li>
+                          <li><span>Tamaño</span> Hasta 3 metros</li>
+                          <li><span>Riego</span> Moderado. Riega cuando el sustrato esté seco en los primeros 3 cm.</li>
+                          <li><span>Clima ideal</span> Temperatura: 18-27°C | No tolera heladas.</li>
+                          <li><span>Uso</span> Ideal para interiores, purifica el aire.</li>
+                          <li><span>Cuidados especiales</span> Limpia sus hojas con un paño húmedo para evitar acumulación de polvo.</li>
+                        </ul>
+                      </div>
+                                         
+                      
+                    <a href="#" class="btn">Adoptar</a>
                 </div>
             </div>
 
@@ -47,47 +66,39 @@
         <section class="recomendadas">
             <h2>Recomendadas</h2>
             <div class="productos-recomendados">
-                <div class="producto">
-                    <div class="image-wrapper">
+                <div class="image-wrapper">
                     <img src="plant.png">
                     <h4>Lorem ipsum</h4>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
-                    </div>
                 </div>
-
-                <div class="producto">
-                    <div class="image-wrapper">
+        
+                <div class="image-wrapper">
                     <img src="plant.png">
                     <h4>Lorem ipsum</h4>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
-                    </div>
                 </div>
-
-                <div class="producto">
-                    <div class="image-wrapper">
+               
+                <div class="image-wrapper">
                     <img src="plant.png">
                     <h4>Lorem ipsum</h4>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
                     </div>
-                </div>
 
-                <div class="producto">
-                    <div class="image-wrapper">
+                <div class="image-wrapper">
                     <img src="plant.png">
                     <h4>Lorem ipsum</h4>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
-                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="logo">LOGO</div>
+        <div class="logo"> <a href="index.html"><img src="logo.jpg" class="logo"></a></div>
         <nav class="footer-nav">
             <a href="index.html">Inicio</a>
             <a href="plantas.html">Plantas</a>
-            <a href="contacto.html">Contacto</a>
+            <a href="contacto.html">Sobre Nosotros</a>
         </nav>
         <div class="footer-info">
         <p>&copy; 2024 Vivero. Todos los derechos reservados.</p>
