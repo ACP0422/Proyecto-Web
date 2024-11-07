@@ -12,6 +12,27 @@
         const detallesDiv = document.querySelector('.detalles');
         detallesDiv.classList.toggle('show');
         }
+        let currentIndex = 0;
+
+        function moveCarousel(direction) {
+            const carousel = document.getElementById('carousel');
+            const totalItems = carousel.children.length;
+            const itemWidth = carousel.children[0].offsetWidth; // Ancho de cada imagen
+
+            // Ajusta el índice
+            currentIndex += direction;
+
+            // Controla los límites del carrusel
+            if (currentIndex < 0) {
+                currentIndex = totalItems - 1; // Va al último elemento si es menor que 0
+            } else if (currentIndex >= totalItems) {
+                currentIndex = 0; // Vuelve al primer elemento si es mayor que el último
+            }
+
+            // Mueve el carrusel usando transform
+            const offset = -currentIndex * itemWidth;
+            carousel.style.transform = `translateX(${offset}px)`;
+        }
     </script>
 </head>
 <body>
@@ -65,32 +86,33 @@
 
         <section class="recomendadas">
             <h2>Recomendadas</h2>
-            <div class="productos-recomendados">
-                <div class="image-wrapper">
-                    <img src="plant.png">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
-                </div>
-        
-                <div class="image-wrapper">
-                    <img src="plant.png">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
-                </div>
-               
-                <div class="image-wrapper">
-                    <img src="plant.png">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
+            <div class="carousel-container">
+                <div class="productos-recomendados" id="carousel">
+                    <div class="image-wrapper">
+                        <img src="plant.png">
+                        <h4>Lorem ipsum</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
-
-                <div class="image-wrapper">
-                    <img src="plant.png">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
+                    <div class="image-wrapper">
+                        <img src="plant.png">
+                        <h4>Lorem ipsum</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="plant.png">
+                        <h4>Lorem ipsum</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="plant.png">
+                        <h4>Lorem ipsum</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
                 </div>
             </div>
-        </section>
+            <button class="btn" onclick="moveCarousel(-1)">&#10094; Prev</button>
+            <button class="btn" onclick="moveCarousel(1)">Next &#10095;</button>
+        </section>        
     </main>
 
     <footer class="footer">

@@ -157,19 +157,24 @@ body {
     text-decoration: none;
     margin-top: 1rem;
     line-height: 1.5rem;
-  }
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden; /* Necesario para que solo se vea una imagen a la vez */
+    position: relative;
+}
 
 .productos-recomendados {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 1.25rem;
+    display: flex;
+    transition: transform 0.5s ease; /* Usamos transform para mover el carrusel */
 }
 
 .image-wrapper {
-    position: relative;
-    width: 100%;
+    flex: 0 0 100%; /* Cada imagen ocupa el 100% del carrusel sin redimensionarse */
     height: 25rem;
     overflow: hidden;
+    position: relative;
 }
 
 .image-wrapper img {
