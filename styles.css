@@ -9,41 +9,6 @@ body {
     line-height: 2rem;
 }
 
-#menu-toggle {
-    display: none;
-}
-
-.menu-icon {
-    display: none; 
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    color: #fff;
-    font-weight: bold;
-    padding: 1rem 4.375rem;
-}
-
-.logo {
-    width: 6.25rem;
-    height: 6.25rem;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.header .nav a {
-    color: #000;
-    margin-left: 1rem;
-    text-decoration: none;
-}
-
-.header .nav a:hover {
-    color: #4A7A3B;
-}
-
 .hero {
     background-image: linear-gradient(#0000004d, #0000004d), url('index.jpeg');
     background-size: cover;
@@ -62,15 +27,6 @@ h1 {
     margin: 1rem 0;
 }
 
-.btn {
-    display: inline-block;
-    background-color: #365a34;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    margin-top: 1rem;
-    line-height: 1.5rem;
-}
 
 .services {
     padding: 2rem 4.375rem;
@@ -184,95 +140,7 @@ h2 {
     padding: 6rem 1rem;
 }
 
-.footer {
-    background-color: #0E2651;
-    color: #fff;
-    padding: 3rem;
-    text-align: left;
-}
-
-.footer .footer-nav a {
-    color: #fff;
-    margin-right: 1rem;
-    text-decoration: none;
-}
-
-.footer .footer-nav a:hover {
-    color: #365a34;
-}
-
-.footer-nav {
-    border-bottom: 0.1rem solid #fff;
-    margin-bottom: 1rem;
-}
-
-.footer-info {
-    margin-top: 3rem;
-    display: flex;
-    gap: 0.938rem;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-    transition: all 0.3s ease;
-}
-
-a:hover {
-    color: #808a80c7;
-    transform: scale(1.1);
-}
-
 @media (max-width: 768px) {
-    .header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 1rem;
-    }
-
-    .logo {
-        width: 4rem;
-        height: 4rem;
-        margin-bottom: 0.5rem; 
-    }
-
-    .menu-icon {
-        width: 100%;
-        background-color: #0E2651;
-        color: #fff;
-        display: block;
-        cursor: pointer;
-        margin-top: 0.5rem; 
-        font-size: 1rem;
-    }
-
-    .nav {
-        display: none;
-        flex-direction: column;
-        gap: 0;
-        background-color: #fff;
-        position: absolute;
-        top: 8rem; 
-        left: 0;
-        width: 100%;
-        padding: 1rem;
-    }
-
-    .nav a {
-        border-bottom: 1px solid #0E2651; 
-        color: #0E2651;
-    }
-
-    .nav a:last-child {
-        border-bottom: none; 
-    }
-
-    #menu-toggle:checked + .menu-icon + .nav {
-        display: flex;
-    }
-
     .hero {
         padding: 12rem 1rem;
     }
@@ -319,11 +187,5 @@ a:hover {
     .image-wrapper p {
         bottom: 1rem; 
         font-size: 1rem; 
-    }
-
-    .footer-info {
-        display: flex; 
-        gap: 0.938rem; 
-        flex-wrap: wrap; 
     }
 }
