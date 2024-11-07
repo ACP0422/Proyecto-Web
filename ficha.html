@@ -11,8 +11,6 @@
         const detallesDiv = document.querySelector('.detalles');
         detallesDiv.classList.toggle('show');
         }
-
-        
         let currentIndex = 0;
 
         function moveCarousel(direction) {
@@ -38,7 +36,11 @@
 </head>
 <body>
     <header class="header">
-        <div class="logo"> <a href="index.html"><img src="logo.jpg" class="logo"></a></div>
+        <div class="logo"> 
+            <a href="index.html"><img src="logo.jpg" class="logo"></a>
+        </div>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰ Menú</label>
         <nav class="nav">
             <a href="index.html">Inicio</a>
             <a href="catalogo.html">Plantas</a>
