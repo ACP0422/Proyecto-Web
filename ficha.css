@@ -256,3 +256,73 @@ a:hover {
     color: #808a80c7;
     transform: scale(1.1);
 }
+
+
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .header .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header .nav a {
+        margin: 0.5rem 0;
+    }
+
+    .ficha-planta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imagen-planta-contenedor,
+    .descripcion-planta {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .descripcion-planta h1 {
+        font-size: 2rem;
+    }
+
+    .descripcion-planta p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+   
+    .productos-recomendados {
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+    }
+
+    
+    .imagenes-relacionadas {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    .imagen-pequena {
+        width: 80%;
+        margin: 0.5rem auto;
+    }
+
+    .footer {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer .footer-nav {
+        flex-direction: column;
+    }
+}
