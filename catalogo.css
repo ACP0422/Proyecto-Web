@@ -56,7 +56,7 @@ main {
     width: 20%;
     padding: 0 1.25rem;
     line-height: 1.5rem;
-    border-right:  0.1rem solid #0E2651;
+    border-right:  0.1rem solid #000;
 }
 
 .filtros h4 {
@@ -72,8 +72,9 @@ main {
     width: 100%; 
     padding: 0.5rem;
     font-size: 1rem;
-    border: 0.063rem solid #0E2651; 
+    border: 0.063rem solid #000; 
     outline: none;
+    border-radius: 0.313rem;
 }
 
 .productos {
@@ -117,8 +118,8 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); 
-    z-index: 1;
+    background-color: #0000004d; 
+    z-index: 1;    
 }
 
 .image-wrapper h4,
@@ -143,7 +144,7 @@ main {
 }
 
 .footer {
-    background-color: #2B2B2B;
+    background-color: #0E2651;
     color: #fff;
     padding: 3rem;
     text-align: left;
@@ -218,7 +219,6 @@ a:hover {
         width: 100%;
         padding: 1rem;
     }
-
 
     .nav a {
         border-bottom: 1px solid #0E2651; 

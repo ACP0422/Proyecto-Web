@@ -146,7 +146,7 @@ body {
 .detalles h3 {
     margin-top: 1.25rem;
     font-size: 1.5rem;
-    color: #0E2651;
+    color: #000;
 }
 
 .recomendadas {
@@ -228,11 +228,10 @@ body {
 .recomendadas h2 {
     margin-bottom: 1.25rem;
     font-size: 2.25rem;
-    color: #0E2651;
 }
 
 .footer {
-    background-color: #2B2B2B;
+    background-color: #0E2651;
     color: #fff;
     padding: 3rem;
     text-align: left;
