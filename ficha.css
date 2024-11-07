@@ -9,34 +9,44 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: #333;
+    background-color: #fff;
     color: #fff;
+    font-weight: bold;
+    padding: 1rem 4.375rem;
 }
 
-.header .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+.logo{
+    width: 6.25rem; 
+    height: 6.25rem; 
+    object-fit: cover; 
+    border-radius: 50%;
 }
 
 .header .nav a {
-    color: #fff;
+    color: #000;
     margin-left: 1rem;
     text-decoration: none;
+}
+
+.header .nav a:hover {
+    color: #4A7A3B;
 }
 
 .ficha-planta {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 40px 20px;
+}
+
+.ficha-planta h1{
+    line-height: 3rem;
 }
 
 .imagen-planta-contenedor {
     flex: 1;
-    max-width: 600px;
+    max-width: 37rem;
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 3rem 0;
 }
 
 .imagen-principal {
@@ -47,24 +57,25 @@ body {
 .imagenes-relacionadas {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 0.625rem;
 }
 
 .imagen-pequena {
-    width: 50%;
+    width: 48%;
     height: auto;
-    margin: 0 5px;
+    margin: 0 0.7rem;
 }
 
 .descripcion-planta {
+    line-height: 2rem;
     flex: 1;
-    max-width: 500px;
-    padding: 20px;
+    max-width: 31.25rem;
+    padding: 1.25rem;
 }
 
 .descripcion-planta h1 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 .descripcion-planta p {
@@ -72,22 +83,65 @@ body {
     text-align: justify;
 }
 
-.detalles ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.detalles ul li {
-    margin-bottom: 10px;
-}
-
-.detalles h3 {
-    margin-top: 20px;
+.flecha {
+    background: none;
+    border: none;
+    cursor: pointer;
     font-size: 1.5rem;
+    color: #365a34; 
+    transition: transform 0.3s ease; 
+}
+
+.show .flecha i {
+    transform: rotate(180deg); 
+}
+
+#detalles-content {
+    max-height: 0;
+    overflow: hidden;
+}
+  
+.show #detalles-content {
+    max-height: none; 
+}
+  
+.detalles ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    column-gap: 0.625rem;
+    position: relative;
+}
+  
+.detalles ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 35%; 
+    width: 0.125rem;
+    background-color: #365a34;
+}
+  
+.detalles ul li {
+    display: contents;
+}
+  
+.detalles ul li span {
+    font-weight: bold;
+    padding-right: 0.625rem;
+}
+  
+.detalles h3 {
+    margin-top: 1.25rem;
+    font-size: 1.5rem;
+    color: #0E2651;
 }
 
 .recomendadas {
-    padding: 20px;
+    padding: 4.375rem;
 }
 
 .producto img {
@@ -95,22 +149,26 @@ body {
     height: auto;
 }
 
-.producto {
-    padding: 15px;
-    text-align: center;
-
-}
+.btn {
+    display: inline-block;
+    background-color: #365a34;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    margin-top: 1rem;
+    line-height: 1.5rem;
+  }
 
 .productos-recomendados {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
+    grid-gap: 1.25rem;
 }
 
 .image-wrapper {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 25rem;
     overflow: hidden;
 }
 
@@ -127,7 +185,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); 
+    background-color: #0000004d; 
     z-index: 1;
 }
 
@@ -137,38 +195,44 @@ body {
     color: #fff;
     z-index: 2;
     text-align: left;
-    left: 2rem; 
+    padding: 0 1.5rem;
+
 }
 
 .image-wrapper h4 {
-    bottom: 4rem; 
-    font-size: 24px;
+    bottom: 5rem;
+    font-size: 1.5rem;
     margin: 0;
 }
 
 .image-wrapper p {
     bottom: 2rem; 
-    font-size: 16px;
+    font-size: 1rem;
     margin: 0;
 }
 
 .recomendadas h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
+    margin-bottom: 1.25rem;
+    font-size: 2.25rem;
+    color: #0E2651;
 }
-
 
 .footer {
     background-color: #2B2B2B;
     color: #fff;
-    padding: 5rem;
+    padding: 3rem;
     text-align: left;
+    line-height: 2rem;
 }
 
 .footer .footer-nav a {
     color: #fff;
     margin-right: 1rem;
     text-decoration: none;
+}
+
+.footer .footer-nav a:hover{
+    color: #365a34;
 }
 
 .footer-nav {
@@ -179,5 +243,16 @@ body {
 .footer-info {
     margin-top: 3rem;
     display: flex;
-    gap: 15px; 
+    gap: 0.938rem; 
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #808a80c7;
+    transform: scale(1.1);
 }
