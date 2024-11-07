@@ -6,35 +6,7 @@
     <title>Ficha descriptiva</title>
     <link rel="stylesheet" href="ficha.css">
 
-    <script>
-        function toggleDetalles() {
-        const detallesDiv = document.querySelector('.detalles');
-        detallesDiv.classList.toggle('show');
-        }
-
-        
-        let currentIndex = 0;
-
-        function moveCarousel(direction) {
-            const carousel = document.getElementById('carousel');
-            const totalItems = carousel.children.length;
-            const itemWidth = carousel.children[0].offsetWidth; // Ancho de cada imagen
-
-            // Ajusta el índice
-            currentIndex += direction;
-
-            // Controla los límites del carrusel
-            if (currentIndex < 0) {
-                currentIndex = totalItems - 1; // Va al último elemento si es menor que 0
-            } else if (currentIndex >= totalItems) {
-                currentIndex = 0; // Vuelve al primer elemento si es mayor que el último
-            }
-
-            // Mueve el carrusel usando transform
-            const offset = -currentIndex * itemWidth;
-            carousel.style.transform = `translateX(${offset}px)`;
-        }
-    </script>
+    <script src="ficha.js"></script>
 </head>
 <body>
     <header class="header">
@@ -48,40 +20,7 @@
 
     <main>
         <!-- Info de planta -->
-        <section class="ficha-planta">
-            <div class="descripcion-planta">
-                <h1>Monstera Deliciosa<br>(Costilla de Adán)</h1>
-                <p>La Monstera Deliciosa es una planta de interior popular, conocida por sus grandes hojas 
-                    verdes con cortes distintivos. No solo añade un toque tropical a cualquier espacio, sino que 
-                    ambién es fácil de cuidar. Ideal para quienes buscan una planta que combine estética y funcionalidad.</p>
-
-                    <div class="detalles">
-                        <h3>
-                          Más detalles
-                          <button class="flecha" onclick="toggleDetalles()">&#10094;</button>
-                        </h3>
-                        <ul id="detalles-content">
-                          <li><span>Familia y Especie</span> Araceae / Monstera</li>
-                          <li><span>Tipo de luz</span> Luz indirecta brillante, tolera semisombra.</li>
-                          <li><span>Tamaño</span> Hasta 3 metros</li>
-                          <li><span>Riego</span> Moderado. Riega cuando el sustrato esté seco en los primeros 3 cm.</li>
-                          <li><span>Clima ideal</span> Temperatura: 18-27°C | No tolera heladas.</li>
-                          <li><span>Uso</span> Ideal para interiores, purifica el aire.</li>
-                          <li><span>Cuidados especiales</span> Limpia sus hojas con un paño húmedo para evitar acumulación de polvo.</li>
-                        </ul>
-                      </div>
-                                         
-                    <a href="#" class="btn">Adoptar</a>
-                </div>
-            </div>
-
-            <div class="imagen-planta-contenedor">
-                <img src="plant.png" class="imagen-principal">
-                <div class="imagenes-relacionadas">
-                    <img src="plant.png" class="imagen-pequena">
-                    <img src="plant.png" class="imagen-pequena">
-                </div>
-            </div>
+        <section class="ficha-planta" id="ficha-planta">
         </section>
 
         <section class="recomendadas">
