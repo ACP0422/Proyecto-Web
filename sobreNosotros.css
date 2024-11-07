@@ -13,15 +13,15 @@ body {
 }
 
 .logo{
-    width: 100px; 
-    height: 100px; 
+    width: 6.25rem; 
+    height: 6.25rem; 
     border-radius: 50%;
     object-fit: cover; 
 }
 
 .logo-footer {
-    width: 50px; 
-    height: 50px; 
+    width: 3.125rem; 
+    height: 3.125rem; 
     border-radius: 50%;
     object-fit: cover; 
     margin-bottom: 7rem;
@@ -57,7 +57,7 @@ main {
 
 .catalogo {
     display: flex;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
 
 
@@ -82,13 +82,13 @@ main {
 .footer-info {
     margin-top: 3rem;
     display: flex;
-    gap: 15px; 
+    gap: 0.938rem; 
 }
 
 .principal {
     display: flex;
     gap: 2rem; 
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
 
 .info, .mapa{
@@ -113,14 +113,22 @@ main {
     margin-bottom: 2rem;
 }
 
+.objetivo img{
+    width: 100%;
+    height: 20rem;
+    margin-top: 2rem;
+    margin: 0%;
+}
+
 ul{
     list-style-position: inside; 
 }
 
 
 h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
     margin-bottom: 2rem;
+    color: #0E2651;
 }
 
 .services {
@@ -145,7 +153,7 @@ h2 {
 }
 
 .service-card h3 {
-    font-size: 38px;
+    font-size: 2.25rem;
     margin-top: 3rem;
     margin-bottom: 2rem;
     text-align: left;
@@ -153,15 +161,15 @@ h2 {
 
 .service-card p, b {
     margin-bottom: 2rem;
-    font-size: 20px;
+    font-size: 1.25rem;
     text-align: left;
 }
 
 .icon {
-    background-color: #000000;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
+    background-color: #C09537;
+    width: 3.125rem;
+    height: 3.125rem;
+    line-height: 3.125rem;
     text-align: left;
 }
 
@@ -189,18 +197,23 @@ a:hover {
 
     
     .logo{
-        width: 3.5rem; 
-        height: 3.5rem; 
+        width: 5rem; 
+        height: 5rem; 
         border-radius: 50%;
         object-fit: cover; 
     }
     
-    .logo-footer{
-        width: 100px; 
-        height: 100px;
-        align-items: center; 
+
+    .logo-footer img{
+        width: 8rem; 
+        height: 8rem; 
         border-radius: 50%;
         object-fit: cover; 
+    }
+
+    .footer-info{
+        flex-direction: column;
+        gap: 1rem;
     }
     
     .header{
@@ -210,10 +223,15 @@ a:hover {
 
     .header .logo {
         font-size: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .header a{
         font-size: 0.8rem;
+    }
+
+    .nav a{
+        font-size: 1rem;
     }
     
     .principal {
@@ -224,8 +242,8 @@ a:hover {
     }
     
     p{
-        font-size: 15px;
-        line-height: 20px;
+        font-size: .938rem;
+        line-height: 1.25rem;
     }
 
     .info, .mapa{
@@ -240,7 +258,7 @@ a:hover {
     
     h2 {
         text-align: center;
-        font-size: 25px;
+        font-size: 1.563rem;
         margin-bottom: 2rem;
     }
     
@@ -266,7 +284,7 @@ a:hover {
     }
     
     .service-card h3 {
-        font-size: 28px;
+        font-size: 1.75rem;
         margin-top: 3rem;
         margin-bottom: 2rem;
         text-align: left;
@@ -274,15 +292,15 @@ a:hover {
     
     .service-card p, b {
         margin-bottom: 2rem;
-        font-size: 12px;
+        font-size: 0.75rem;
         text-align: left;
     }
     
     .icon {
         background-color: #000000;
-        width: 50px;
-        height: 50px;
-        line-height: 50px;
+        width: 3.125rem;
+        height: 3.125rem;
+        line-height: 3.125rem;
         text-align: left;
     }
 
@@ -295,9 +313,13 @@ a:hover {
     }
 
     .objetivo p b, ul{
-        font-size: 15px;
+        font-size: .938rem;
     }
-    
 
-
+    .objetivo img{
+        width: 100%;
+        height: 8rem;
+        margin-top: 2rem;
+        margin: 0%;
+    }
 }
