@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha descriptiva</title>
     <link rel="stylesheet" href="ficha.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" alt="flecha-detalles">
 
     <script>
         function toggleDetalles() {
         const detallesDiv = document.querySelector('.detalles');
         detallesDiv.classList.toggle('show');
         }
+
+        
         let currentIndex = 0;
 
         function moveCarousel(direction) {
@@ -57,7 +58,7 @@
                     <div class="detalles">
                         <h3>
                           Más detalles
-                          <button class="flecha" onclick="toggleDetalles()"><i class="fas fa-chevron-down"></i></button>
+                          <button class="flecha" onclick="toggleDetalles()">&#10094;</button>
                         </h3>
                         <ul id="detalles-content">
                           <li><span>Familia y Especie</span> Araceae / Monstera</li>
@@ -70,7 +71,6 @@
                         </ul>
                       </div>
                                          
-                      
                     <a href="#" class="btn">Adoptar</a>
                 </div>
             </div>
@@ -110,8 +110,8 @@
                     </div>
                 </div>
             </div>
-            <button class="btn" onclick="moveCarousel(-1)">&#10094; Prev</button>
-            <button class="btn" onclick="moveCarousel(1)">Next &#10095;</button>
+            <button class="btn" onclick="moveCarousel(-1)">&#10094;</button>
+            <button class="btn" onclick="moveCarousel(1)">&#10095;</button>
         </section>        
     </main>
 

@@ -89,12 +89,14 @@ body {
     cursor: pointer;
     font-size: 1.5rem;
     color: #365a34; 
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
+    transform: rotate(90deg); /*flecha hacia abajo */
 }
 
-.show .flecha i {
-    transform: rotate(180deg); 
+.show .flecha {
+    transform: rotate(270deg); 
 }
+
 
 #detalles-content {
     max-height: 0;
@@ -161,17 +163,17 @@ body {
 
 .carousel-container {
     width: 100%;
-    overflow: hidden; /* Necesario para que solo se vea una imagen a la vez */
+    overflow: hidden; 
     position: relative;
 }
 
 .productos-recomendados {
     display: flex;
-    transition: transform 0.5s ease; /* Usamos transform para mover el carrusel */
+    transition: transform 0.5s ease;
 }
 
 .image-wrapper {
-    flex: 0 0 100%; /* Cada imagen ocupa el 100% del carrusel sin redimensionarse */
+    flex: 0 0 100%; 
     height: 25rem;
     overflow: hidden;
     position: relative;

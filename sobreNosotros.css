@@ -19,14 +19,6 @@ body {
     object-fit: cover; 
 }
 
-.logo-footer {
-    width: 3.125rem; 
-    height: 3.125rem; 
-    border-radius: 50%;
-    object-fit: cover; 
-    margin-bottom: 7rem;
-}
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -35,10 +27,6 @@ body {
     background-color: #23492a;
     color: #ffffff;
     font-weight: bold;
-}
-
-.header .logo {
-    font-size: 0.3rem;
 }
 
 .header .nav a {
@@ -194,19 +182,9 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-
-    
     .logo{
         width: 5rem; 
         height: 5rem; 
-        border-radius: 50%;
-        object-fit: cover; 
-    }
-    
-
-    .logo-footer img{
-        width: 8rem; 
-        height: 8rem; 
         border-radius: 50%;
         object-fit: cover; 
     }
