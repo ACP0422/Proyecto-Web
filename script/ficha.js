@@ -156,7 +156,7 @@ function cargarPlanta() {
                     <li><span>Cuidados especiales</span> ${planta.detalles.cuidados}</li>
                 </ul>
             </div>
-            <a href="#" class="btn">Adoptar</a>
+            <button><a href="#">Adoptar</a></button>
         </div>
 
         <div class="imagen-planta-contenedor">

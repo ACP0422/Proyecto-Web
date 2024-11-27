@@ -50,7 +50,7 @@ header .nav a:hover {
     color: #4A7A3B;
 }
 
-.btn {
+button {
     display: inline-block;
     background-color: #C79316;
     color: #fff;
@@ -59,7 +59,9 @@ header .nav a:hover {
     margin-top: 1rem;
     line-height: 1.5rem;
     border-radius: 0.313rem;
+    border: none; 
 }
+
 
 footer {
     background-color: #002E5F;
