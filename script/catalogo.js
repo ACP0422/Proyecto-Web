@@ -1,3 +1,10 @@
+function toggleDetalles(button) {
+    const checkboxes = button.parentElement.nextElementSibling; 
+    checkboxes.classList.toggle('active'); 
+    button.classList.toggle('active'); 
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll(".option").forEach(option => {
         option.addEventListener("change", filtrarProductos);

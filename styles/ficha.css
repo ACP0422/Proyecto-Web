@@ -1,9 +1,4 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/*cambiar class btn por label button*/
 
 .ficha-planta {
     display: flex;
@@ -11,7 +6,7 @@ body {
     justify-content: space-around;
 }
 
-.ficha-planta h1{
+.ficha-planta h1 {
     line-height: 3rem;
 }
 
@@ -61,67 +56,97 @@ body {
     border: none;
     cursor: pointer;
     font-size: 1.5rem;
-    color: #365a34; 
-    transition: transform 0.3s ease;
-    transform: rotate(270deg); /*flecha hacia abajo */
+    color: #515352;
+    transform: rotate(0deg); 
 }
 
 .show .flecha {
-    transform: rotate(90deg); 
+    transform: rotate(180deg); 
 }
-
 
 #detalles-content {
     max-height: 0;
     overflow: hidden;
+    transition: max-height 0.3s ease; 
 }
   
 .show #detalles-content {
-    max-height: none; 
+    max-height: 1000px; 
 }
-  
 .detalles ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    column-gap: 0.625rem;
+    grid-template-columns: 1.2fr 1.8fr; 
+    column-gap: 1rem;
+    row-gap: 1rem; 
     position: relative;
 }
-  
+
 .detalles ul::before {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 35%; 
-    width: 0.125rem;
-    background-color: #365a34;
+    left: 38%; 
+    width: 0.1rem;
+    background-color: #EAEBEB;
 }
-  
+
 .detalles ul li {
     display: contents;
+    color: #515352;
 }
-  
+
 .detalles ul li span {
     font-weight: bold;
-    padding-right: 0.625rem;
-}
-  
-.detalles h3 {
-    margin-top: 1.25rem;
-    font-size: 1.5rem;
+    padding-right: 1rem; 
     color: #000;
 }
 
-.recomendadas {
-    padding: 4.375rem;
+.detalles h3 {
+    margin-top: 5rem; 
+    margin-bottom: 1.5rem;
+    font-size: 1.9rem; 
+    color: #282A29;
+    line-height: 1.6rem;
 }
 
-.producto img {
-    max-width: 100%;
-    height: auto;
+.recomendadas {
+    padding: 0 3rem;
+    margin-top: 4rem;
+    position: relative;
+}
+
+.carrusel-botones {
+    position: absolute;
+    top: 0; 
+    right: 0; 
+    display: flex; 
+    gap: 10px; 
+}
+
+.btn-carrusel {
+    background: none; 
+    border: none; 
+    padding: 0;
+    margin: 0; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+.btn-carrusel svg {
+    stroke: #646867; 
+    width: 24px; 
+    height: 24px;
+    transition: stroke 0.3s; 
+}
+
+.btn-carrusel:hover svg {
+    stroke: #000; 
 }
 
 .carousel-container {
@@ -132,12 +157,12 @@ body {
 
 .productos-recomendados {
     display: flex;
+    gap: 3rem;
     transition: transform 0.5s ease;
 }
 
 .image-wrapper {
-    flex: 0 0 100%; 
-    height: 25rem;
+    flex: 0 0 30%;
     overflow: hidden;
     position: relative;
 }
@@ -147,6 +172,7 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
 
 .image-wrapper::before {
     content: "";
@@ -166,7 +192,6 @@ body {
     z-index: 2;
     text-align: left;
     padding: 0 1.5rem;
-
 }
 
 .image-wrapper h4 {
@@ -190,6 +215,7 @@ body {
     .ficha-planta {
         flex-direction: column;
         align-items: center;
+        padding: 1rem; 
     }
 
     .imagen-planta-contenedor,
@@ -205,12 +231,12 @@ body {
     .descripcion-planta p {
         font-size: 1rem;
     }
-   
+
     .productos-recomendados {
-        grid-template-columns: 1fr;
+        flex-direction: row; 
         grid-gap: 1rem;
     }
-    
+
     .imagenes-relacionadas {
         flex-direction: column;
         margin-top: 1rem;
@@ -219,5 +245,22 @@ body {
     .imagen-pequena {
         width: 80%;
         margin: 0.5rem auto;
+    }
+
+    .carousel-container {
+        padding: 1rem; 
+    }
+
+    .image-wrapper {
+        height: 20rem; 
+    }
+
+    .image-wrapper h4,
+    .image-wrapper p {
+        padding: 0 1rem; 
+    }
+
+    .recomendadas h2 {
+        font-size: 1.8rem;
     }
 }

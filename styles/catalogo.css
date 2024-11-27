@@ -1,17 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-main {
-    padding: 4rem;
-}
-
 .catalogo {
     display: flex;
     margin-top: 1.25rem;
@@ -26,7 +12,6 @@ main {
 
 .filtros h4 {
     margin-top: 1.25rem;
-    color: #0E2651;
 }
 
 .filtros label {
@@ -40,6 +25,49 @@ main {
     border: 0.063rem solid #000; 
     outline: none;
     border-radius: 0.313rem;
+}
+
+
+
+.filtro-header {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 0.5rem; 
+}
+
+.filtro-header h4 {
+    margin: 0;
+    font-size: 1rem; 
+    line-height: 1.5; 
+}
+
+.flecha {
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    padding: 0;
+    display: flex; 
+    align-items: center; 
+    margin-left: 0.5rem; 
+}
+
+.flecha svg {
+    height: 1rem; 
+    width: 1rem;
+}
+
+.flecha.active svg {
+    transform: rotate(180deg); 
+}
+
+.checkboxes {
+    display: none; 
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+}
+
+.checkboxes.active {
+    display: block; 
 }
 
 .productos {

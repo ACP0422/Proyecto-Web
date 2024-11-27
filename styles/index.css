@@ -1,0 +1,239 @@
+.hero {
+    background-image: linear-gradient(#0000004d, #0000004d), url('../recursos/index.jpeg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #fff;
+    padding: 22rem 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+.services {
+    padding: 5rem 6rem;
+    background-color: #002E5F;
+    color: #fff;
+    text-align: left;
+}
+
+.service {
+    font-size: 1.3rem;
+    flex: 1;
+}
+
+.service p {
+    max-width: 400px; 
+    margin: 0 auto; 
+}
+
+.service h1 {
+    line-height: 4.5rem;
+}
+
+.objective {
+    font-size: 1rem; 
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.content {
+    display: flex;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h2 {
+    padding: 2rem;
+    font-size: 2.25rem;
+}
+
+.achievements {
+    color: #000;
+    text-align: center;
+    padding: 2rem 4.375rem;
+}
+
+.achievements p {
+    color: #515352;
+}
+
+.section-one {
+    margin-bottom: 2rem;
+    padding: 4rem;
+    font-size: 1.3rem;
+}
+
+.section-one h2 {
+    margin-bottom: 1rem;
+}
+
+.section-two h3 {
+    font-size: 1.3rem;
+}
+
+.section-two {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.row-one, .row-two {
+    display: contents;
+}
+
+.column {
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.column h3 {
+    margin-bottom: 1rem;
+}
+
+.icon-container {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #B7B9B8;
+    display: inline-block;
+    text-align: center;
+}
+
+.icon-container svg {
+    color: #002E5F;
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+}
+
+.highlight {
+    padding: 2rem 4.375rem 0rem 7.375rem;
+    text-align: center;
+}
+
+.highlight-cards {
+    margin-top: 6rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.highlight-card {
+    flex: 0 0 auto;
+    width: 30%;
+    text-align: center;
+    scroll-snap-align: start;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 20rem;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0000004d;
+    z-index: 1;
+}
+
+.image-wrapper h3,
+.image-wrapper p {
+    position: absolute;
+    color: #fff;
+    z-index: 2;
+    text-align: left;
+    padding: 0 2rem;
+}
+
+.image-wrapper h3 {
+    bottom: 6rem;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.image-wrapper p {
+    bottom: 2rem;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.about-us {
+    text-align: center;
+    padding: 6rem 1rem;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 12rem 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    .services, .highlight, .achievements, .about-us {
+        padding: 1rem;
+    }
+
+    .highlight-card {
+        width: 90%;
+        margin-bottom: 1rem;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .image-wrapper {
+        height: 15rem;
+    }
+
+    .image-wrapper h3, 
+    .image-wrapper p {
+        padding: 0.5rem;
+    }
+
+    .image-wrapper h3 {
+        bottom: 5rem;
+        font-size: 1.3rem;
+    }
+
+    .image-wrapper p {
+        bottom: 1rem;
+        font-size: 1rem;
+    }
+
+    .section-two {
+        grid-template-columns: 1fr;
+    }
+}

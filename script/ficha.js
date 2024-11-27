@@ -3,27 +3,81 @@ function toggleDetalles() {
     detallesDiv.classList.toggle('show');
 }
 
-let currentIndex = 0;
+
+let currentIndex = 0; // Empieza en el primer grupo visible
+let itemWidth; // Ancho de un elemento
+let visibleItems = 3; // Cantidad de imágenes visibles a la vez
+let autoCarouselInterval;
+
+function setupCarousel() {
+    const carousel = document.getElementById('carousel');
+    const items = Array.from(carousel.children);
+
+    // Clona las primeras y últimas imágenes visibles
+    for (let i = 0; i < visibleItems; i++) {
+        const firstClone = items[i].cloneNode(true);
+        const lastClone = items[items.length - 1 - i].cloneNode(true);
+
+        carousel.appendChild(firstClone);
+        carousel.insertBefore(lastClone, carousel.firstChild);
+    }
+}
+
+function initializeCarousel() {
+    const carousel = document.getElementById('carousel');
+    const items = Array.from(carousel.children);
+    itemWidth = carousel.children[0].offsetWidth + parseFloat(getComputedStyle(carousel).gap);
+
+    // Ajusta el carrusel para mostrar el primer grupo real
+    carousel.style.transform = `translateX(${-itemWidth * visibleItems}px)`;
+    currentIndex = visibleItems; // Primer elemento real después de los clones
+}
 
 function moveCarousel(direction) {
     const carousel = document.getElementById('carousel');
-    const totalItems = carousel.children.length;
-    const itemWidth = carousel.children[0].offsetWidth; // Ancho de cada imagen
+    const items = Array.from(carousel.children);
+    const totalItems = items.length;
 
-    // Ajusta el índice
+    // Ajusta el índice según la dirección
     currentIndex += direction;
 
-    // Controla los límites del carrusel
-    if (currentIndex < 0) {
-        currentIndex = totalItems - 1; // Va al último elemento si es menor que 0
-    } else if (currentIndex >= totalItems) {
-        currentIndex = 0; // Vuelve al primer elemento si es mayor que el último
-    }
-
-    // Mueve el carrusel usando transform
+    // Movimiento del carrusel
     const offset = -currentIndex * itemWidth;
+    carousel.style.transition = 'transform 0.5s ease';
     carousel.style.transform = `translateX(${offset}px)`;
+
+    // Ajusta el índice para mantener el efecto circular
+    setTimeout(() => {
+        if (currentIndex < visibleItems) {
+            currentIndex = totalItems - 2 * visibleItems; // Salta al final real
+            carousel.style.transition = 'none';
+            carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+        } else if (currentIndex >= totalItems - visibleItems) {
+            currentIndex = visibleItems; // Salta al inicio real
+            carousel.style.transition = 'none';
+            carousel.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+        }
+    }, 500); // Tiempo coincide con la duración de la transición
 }
+
+function startAutoCarousel() {
+    autoCarouselInterval = setInterval(() => {
+        moveCarousel(1); // Mueve hacia la derecha automáticamente
+    }, 2000);
+}
+
+function stopAutoCarousel() {
+    clearInterval(autoCarouselInterval);
+}
+
+window.addEventListener('load', () => {
+    setupCarousel(); // Configura los clones
+    initializeCarousel(); // Ajusta el carrusel al primer grupo real
+    startAutoCarousel(); // Inicia el movimiento automático
+});
+
+
+
 
 // Datos de las plantas
 const plantasData = {
@@ -40,8 +94,8 @@ const plantasData = {
             uso: "Ideal para interiores.",
             cuidados: "Limpia sus hojas con un paño húmedo."
         },
-        imagenPrincipal: "plant.png",
-        imagenesRelacionadas: ["plant.png", "plant.png"]
+        imagenPrincipal: "recursos/plant.png",
+        imagenesRelacionadas: ["recursos/plant.png", "recursos/plant.png"]
     },
     loto: {
         nombre: "Flor de Loto",
@@ -56,8 +110,8 @@ const plantasData = {
             uso: "Ideal para estanques.",
             cuidados: "Requiere un lugar soleado."
         },
-        imagenPrincipal: "plant.png",
-        imagenesRelacionadas: ["plant.png", "plant.png"]
+        imagenPrincipal: "recursos/plant.png",
+        imagenesRelacionadas: ["recursos/plant.png", "recursos/plant.png"]
     }
 };
 
@@ -86,7 +140,11 @@ function cargarPlanta() {
             <div class="detalles">
                 <h3>
                     Más detalles
-                    <button class="flecha" onclick="toggleDetalles()">&#10094;</button>
+                    <button class="flecha" onclick="toggleDetalles(this)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
                 </h3>
                 <ul id="detalles-content">
                     <li><span>Familia y Especie</span> ${planta.detalles.familia}</li>

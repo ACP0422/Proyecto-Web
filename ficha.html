@@ -4,65 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha descriptiva</title>
-    <link rel="stylesheet" href="ficha.css">
-    <link rel="stylesheet" href="estilos_generales.css">
-    <script src="ficha.js"></script>
+    <link rel="stylesheet" href="styles/ficha.css">
+    <link rel="stylesheet" href="styles/estilosGenerales.css">
+    <script src="script/ficha.js"></script>
 </head>
 <body>
-    <header class="header">
+    <header>
         <div class="logo"> 
-            <a href="index.html"><img src="logo.jpg" class="logo"></a>
+            <a href="index.html"><img src="recursos/logo.jpg" class="logo"></a>
         </div>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">☰ Menú</label>
         <nav class="nav">
             <a href="index.html">Inicio</a>
             <a href="catalogo.html">Plantas</a>
-            <a href="sobreNosotros.html">Sobre Nosotros</a>
+            <a href="sobreNosotros.html">Sobre nosotros</a>
         </nav>
     </header>
 
     <main>
         <!-- Info de planta -->
-        <section class="ficha-planta" id="ficha-planta">
-        </section>
-
-        <section class="recomendadas">
+        <div class="ficha-planta" id="ficha-planta"></div>
+        <div class="recomendadas">
             <h2>Recomendadas</h2>
+            <div class="carrusel-botones">
+                <button class="btn-carrusel" onclick="moveCarousel(-1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                </button>
+                <button class="btn-carrusel" onclick="moveCarousel(1)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+            
             <div class="carousel-container">
                 <div class="productos-recomendados" id="carousel">
                     <div class="image-wrapper">
-                        <img src="plant.png">
+                        <img src="recursos/roble.jpg">
                         <h4>Lorem ipsum</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                     <div class="image-wrapper">
-                        <img src="plant.png">
+                        <img src="recursos/plant.png">
                         <h4>Lorem ipsum</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                     <div class="image-wrapper">
-                        <img src="plant.png">
+                        <img src="recursos/plant.png">
                         <h4>Lorem ipsum</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                     <div class="image-wrapper">
-                        <img src="plant.png">
+                        <img src="recursos/plant.png">
                         <h4>Lorem ipsum</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </div>
             </div>
-            <button class="btn" onclick="moveCarousel(-1)">&#10094;</button>
-            <button class="btn" onclick="moveCarousel(1)">&#10095;</button>
-        </section>        
+        </div>        
     </main>
 
-    <footer class="footer">
+    <footer>
         <nav class="footer-nav">
             <a href="index.html">Inicio</a>
             <a href="catalogo.html">Plantas</a>
-            <a href="sobreNosotros.html">Sobre Nosotros</a>
+            <a href="sobreNosotros.html">Sobre nosotros</a>
         </nav>
         <div class="footer-info">
         <p>&copy; 2024 Vivero. Todos los derechos reservados.</p>

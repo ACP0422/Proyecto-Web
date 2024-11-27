@@ -4,54 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo</title>
-    <link rel="stylesheet" href="catalogo.css">
-    <link rel="stylesheet" href="estilos_generales.css">
+    <link rel="stylesheet" href="styles/catalogo.css">
+    <link rel="stylesheet" href="styles/estilosGenerales.css">
     
-    <script src="script.js"></script>
+    <script src="script/catalogo.js"></script>
 </head>
 <body>
-    <header class="header">
+    <header>
         <div class="logo">
-            <a href="index.html"><img src="logo.jpg" class="logo"></a>
+            <a href="index.html"><img src="recursos/logo.jpg" class="logo"></a>
         </div>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">☰Menú</label>
         <nav class="nav">
             <a href="index.html">Inicio</a>
             <a href="catalogo.html">Plantas</a>
-            <a href="sobreNosotros.html">Sobre Nosotros</a>
+            <a href="sobreNosotros.html">Sobre nosotros</a>
         </nav>
     </header>
 
     <main>
-        <section class="catalogo">
+        <div class="catalogo">
             <!--Filtro-->
             <aside class="filtros">
                 <input type="search" placeholder="Buscar">
-
-                <h4>Tipo de luz</h4>
-                <label><input class="option" type="checkbox" name="tipo_de_luz" value="semisombra"> Semisombra</label><br>
-                <label><input class="option" type="checkbox" name="tipo_de_luz" value="sombra"> Sombra</label><br>
-                <label><input class="option" type="checkbox" name="tipo_de_luz" value="luz"> Luz</label>
-
-                <h4>Tamaño</h4>
-                <label><input class="option" type="checkbox" name="tamaño" value="pequeño"> Pequeño</label>
-
-                <h4>Familia y Especie</h4>
-                <label><input class="option" type="checkbox" name="especie" value="araceae"> Araceae</label>
+            
+                <div class="filtro-item">
+                    <div class="filtro-header">
+                        <h4>Tipo de luz</h4>
+                        <button class="flecha" onclick="toggleDetalles(this)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="checkboxes">
+                        <label><input class="option" type="checkbox" name="tipo_de_luz" value="semisombra"> Semisombra</label><br>
+                        <label><input class="option" type="checkbox" name="tipo_de_luz" value="sombra"> Sombra</label><br>
+                        <label><input class="option" type="checkbox" name="tipo_de_luz" value="luz"> Luz</label>
+                    </div>
+                </div>
+            
+                <div class="filtro-item">
+                    <div class="filtro-header">
+                        <h4>Tamaño</h4>
+                        <button class="flecha" onclick="toggleDetalles(this)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="checkboxes">
+                        <label><input class="option" type="checkbox" name="tamaño" value="pequeño"> Pequeño</label>
+                    </div>
+                </div>
+            
+                <div class="filtro-item">
+                    <div class="filtro-header">
+                        <h4>Familia y Especie</h4>
+                        <button class="flecha" onclick="toggleDetalles(this)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="checkboxes">
+                        <label><input class="option" type="checkbox" name="especie" value="araceae"> Araceae</label>
+                    </div>
+                </div>
             </aside>
-
-
+            
+            
             <!--Productos-->
-            <section class="productos">
+            <div class="productos">
                 <div class="producto">
                     <input type="hidden" name="tipo_de_luz" value="semisombra">
                     <input type="hidden" name="especie" value="araceae">
-                    
                     <!-- Enlace con parámetro en la URL -->
                     <a href="ficha.html?planta=monstera">
                         <div class="image-wrapper">
-                            <img src="plant.png">
+                            <img src="recursos/plant.png">
                             <h4>Monstera Deliciosa</h4>
                             <p>Semisombra/Araceae.</p>
                         </div>
@@ -65,7 +97,7 @@
                     <!-- Enlace con parámetro en la URL -->
                     <a href="ficha.html?planta=loto">
                         <div class="image-wrapper">
-                            <img src="plant.png">
+                            <img src="recursos/plant.png">
                             <h4>Flor de Loto</h4>
                             <p>Sombra/Pequeño</p>
                         </div>
@@ -75,7 +107,7 @@
                 <div class="producto">
                     <a href="ficha.html">
                     <div class="image-wrapper">
-                    <img src="plant.png">
+                    <img src="recursos/plant.png">
                     <h4>Lorem ipsum</h4>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
                     </div></a>
@@ -84,7 +116,7 @@
                 <div class="producto">
                     <a href="ficha.html">
                     <div class="image-wrapper">
-                    <img src="plant.png">
+                    <img src="recursos/plant.png">
                     <h4>Lorem ipsum</h4>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
                     </div></a>
@@ -93,7 +125,7 @@
                 <div class="producto">
                     <a href="ficha.html">
                     <div class="image-wrapper">
-                    <img src="plant.png">
+                    <img src="recursos/plant.png">
                     <h4>Lorem ipsum</h4>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
                     </div></a>
@@ -102,7 +134,7 @@
                 <div class="producto">
                     <a href="ficha.html">
                     <div class="image-wrapper">
-                    <img src="plant.png">
+                    <img src="recursos/plant.png">
                     <h4>Lorem ipsum</h4>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
                     </div></a>
@@ -111,7 +143,7 @@
                 <div class="producto">
                     <a href="ficha.html">
                     <div class="image-wrapper">
-                    <img src="plant.png">
+                    <img src="recursos/plant.png">
                     <h4>Lorem ipsum</h4>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
                     </div></a>
@@ -120,7 +152,7 @@
                 <div class="producto">
                     <a href="ficha.html">
                     <div class="image-wrapper">
-                    <img src="plant.png">
+                    <img src="recursos/plant.png">
                     <h4>Lorem ipsum</h4>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
                     </div></a>
@@ -129,21 +161,21 @@
                 <div class="producto">
                     <a href="ficha.html">
                     <div class="image-wrapper">
-                    <img src="plant.png">
+                    <img src="recursos/plant.png">
                     <h4>Lorem ipsum</h4>
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
                     </div></a>
                 </div>
                 
-            </section>
-        </section>
+            </div>
+        </div>
     </main>
 
-    <footer class="footer">
+    <footer>
         <nav class="footer-nav">
             <a href="index.html">Inicio</a>
             <a href="catalogo.html">Plantas</a>
-            <a href="sobreNosotros.html">Sobre Nosotros</a>
+            <a href="sobreNosotros.html">Sobre nosotros</a>
         </nav>
         <div class="footer-info">
         <p>&copy; 2024 Vivero. Todos los derechos reservados.</p>
