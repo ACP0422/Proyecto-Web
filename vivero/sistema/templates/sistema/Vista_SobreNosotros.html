@@ -1,24 +1,26 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros</title>
-    <link rel="stylesheet" href="styles/sobreNosotros.css">
-    <link rel="stylesheet" href="styles/estilosGenerales.css">
+    <link rel="stylesheet" href="{% static 'estilos/sobreNosotros.css' %}">
+    <link rel="stylesheet" href="{% static 'estilos/estilosGenerales.css' %}">
 
 </head>
 <body>
     <header>
-        <div class="logo"> 
-            <a href="index.html"><img src="recursos/logo.jpg" class="logo"></a>
+        <div class="logo">
+            <a href="{% url 'índice' %}"><img src="{% static 'recursos/logo.jpg' %}" class="logo"></a>
         </div>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">☰ Menú</label>
         <nav class="nav">
-            <a href="index.html">Inicio</a>
-            <a href="catalogo.html">Plantas</a>
-            <a href="sobreNosotros.html">Sobre nosotros</a>
+            <a href="{% url 'índice' %}">Inicio</a>
+            <a href="{% url 'catálogo' %}">Plantas</a>
+            <a href="{% url 'sobre_nosotros' %}">Sobre nosotros</a>
         </nav>
     </header>
     
@@ -87,9 +89,9 @@
 
     <footer>
         <nav class="footer-nav">
-            <a href="index.html">Inicio</a>
-            <a href="catalogo.html">Plantas</a>
-            <a href="sobreNosotros.html">Sobre nosotros</a>
+            <a href="{% url 'índice' %}">Inicio</a>
+            <a href="{% url 'catálogo' %}">Plantas</a>
+            <a href="{% url 'sobre_nosotros' %}">Sobre nosotros</a>
         </nav>
         <div class="footer-info">
         <p>&copy; 2024 Vivero. Todos los derechos reservados.</p>

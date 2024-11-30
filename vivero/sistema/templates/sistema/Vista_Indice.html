@@ -1,30 +1,32 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vivero</title>
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/estilosGenerales.css">
+    <link rel="stylesheet" href="{% static 'estilos/index.css' %}">
+    <link rel="stylesheet" href="{% static 'estilos/estilosGenerales.css' %}">
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="recursos/index.jpeg"><img src="recursos/logo.jpg" class="logo"></a>
+            <a href="{% url 'índice' %}"><img src="{% static 'recursos/logo.jpg' %}" class="logo"></a>
         </div>
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">☰Menú</label>
         <nav class="nav">
-            <a href="index.html">Inicio</a>
-            <a href="catalogo.html">Plantas</a>
-            <a href="sobreNosotros.html">Sobre nosotros</a>
+            <a href="{% url 'índice' %}">Inicio</a>
+            <a href="{% url 'catálogo' %}">Plantas</a>
+            <a href="{% url 'sobre_nosotros' %}">Sobre nosotros</a>
         </nav>
     </header>
        
     <div class="hero">
         <h1>Adopta tu planta</h1>
         <p>Cuidemos al planeta en donde vivimos</p>
-       <button><a href="catalogo.html">Ver Plantas</a></button>
+       <button><a href="{% url 'catálogo' %}">Ver Plantas</a></button>
     </div>
 
     <div class="services">
@@ -117,14 +119,14 @@
         <div class="highlight-cards">
             <div class="highlight-card">
                 <div class="image-wrapper">
-                <img src="recursos/destacado1_index.jpeg">
+                <img src="{% static 'recursos/destacado1_index.jpeg' %}">
                 <h3>Lorem ipsum</h3>
                 <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
                 </div>
             </div>
             <div class="highlight-card">
                 <div class="image-wrapper">
-                <img src="recursos/destacado2_index.jpeg">
+                <img src="{% static 'recursos/destacado2_index.jpeg' %}">
                 <h3>Lorem ipsum</h3>
                 <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
             </div>
@@ -132,7 +134,7 @@
             </div>
             <div class="highlight-card">
                 <div class="image-wrapper">
-                <img src="recursos/destacado3_index.jpeg">
+                <img src="{% static 'recursos/destacado3_index.jpeg' %}">
                 <h3>Lorem ipsum</h3>
                 <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
                 </div>  
@@ -143,14 +145,14 @@
     <div class="about-us">
         <h2>¿Tienes preguntas?</h2>
         <p>ibero pellentesque egestas iaculis senectus, litora laoreet cursus natoque. Lectus<br>enim hendrerit aliquam litora gravida arcu amet ridiculus.</p>
-        <button><a href="sobreNosotros.html">Sobre Nosotros</a></button>
+        <button><a href="{% url 'sobre_nosotros' %}">Sobre Nosotros</a></button>
     </div>
 
     <footer>
         <nav class="footer-nav">
-            <a href="index.html">Inicio</a>
-            <a href="catalogo.html">Plantas</a>
-            <a href="sobreNosotros.html">Sobre nosotros</a>
+            <a href="{% url 'índice' %}">Inicio</a>
+            <a href="{% url 'catálogo' %}">Plantas</a>
+            <a href="{% url 'sobre_nosotros' %}">Sobre nosotros</a>
         </nav>
         <div class="footer-info">
         <p>&copy; 2024 Vivero. Todos los derechos reservados.</p>
