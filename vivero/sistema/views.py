@@ -15,3 +15,6 @@ def sobreNosotros(request: HttpRequest) -> HttpResponse:
 
 def ficha(request: HttpRequest) -> HttpResponse:
     return render(request, "sistema/Vista_Ficha.html")
+
+def registrarPlanta(request: HttpRequest) -> HttpResponse:
+    return render(request, "sistema/Vista_GestionArchivos.html")
