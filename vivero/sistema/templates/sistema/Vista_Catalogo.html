@@ -86,7 +86,7 @@
                     <input type="hidden" name="tipo_de_luz" value="semisombra">
                     <input type="hidden" name="especie" value="araceae">
                     <!-- Enlace con parámetro en la URL -->
-                    <a href="ficha.html?planta=monstera">
+                    <a href="{% url 'ficha' %}?planta=monstera">
                         <div class="image-wrapper">
                             <img src="{% static 'recursos/plant.png' %}">
                             <h4>Monstera Deliciosa</h4>
@@ -100,7 +100,7 @@
                     <input type="hidden" name="tamaño" value="pequeño">
                 
                     <!-- Enlace con parámetro en la URL -->
-                    <a href="ficha.html?planta=loto">
+                    <a href="{% url 'ficha' %}?planta=loto">
                         <div class="image-wrapper">
                             <img src="{% static 'recursos/plant.png' %}">
                             <h4>Flor de Loto</h4>

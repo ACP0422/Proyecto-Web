@@ -18,7 +18,8 @@ def sobreNosotros(request: HttpRequest) -> HttpResponse:
     return render(request, "sistema/Vista_SobreNosotros.html")
 
 def ficha(request: HttpRequest) -> HttpResponse:
-    return render(request, "sistema/Vista_Ficha.html")
+    planta = request.GET.get('planta', None) 
+    return render(request, "sistema/Vista_Ficha.html", {'planta': planta})
 
 def registrarPlanta(request: HttpRequest) -> HttpResponse:
     return render(request, "sistema/Vista_GestionArchivos.html")
