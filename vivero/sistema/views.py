@@ -32,7 +32,7 @@ def obtener_planta(request):
     print("Obteniendo planta con ID:", request.GET.get('planta'))
     plantas = Planta.objects.all()
     for planta in plantas:
-        print(planta.nombre, planta.especie)  # Ajusta los campos que quieres ver
+        print(planta.nombre, planta.especie)
 
 
     planta_id = request.GET.get('planta')
@@ -53,6 +53,7 @@ def obtener_planta(request):
             },
             "imagenPrincipal": planta.imagen.url if planta.imagen else "",
             "imagenesRelacionadas": [],
+            "qr": planta.qr_code.url if planta.qr_code else ""
         }
         return JsonResponse(data)
     except Planta.DoesNotExist:

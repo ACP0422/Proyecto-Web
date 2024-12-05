@@ -1,10 +1,8 @@
-from django.db import models as m
-import qrcode
-import os
-from django.conf import settings
-from io import BytesIO
 from django.core.files.base import ContentFile
-
+from io import BytesIO
+import qrcode
+from django.conf import settings
+from django.db import models as m
 
 class Planta(m.Model):
     nombre = m.CharField(max_length=100)
@@ -13,7 +11,7 @@ class Planta(m.Model):
     especie = m.CharField(max_length=100)
     descripcion = m.TextField()
     imagen = m.ImageField()
-    qr_code = m.ImageField()
+    qr_code = m.ImageField(upload_to='qr_codes/')  # You can specify a subdirectory for the QR codes
 
     def __str__(self):
         return self.nombre
@@ -32,20 +30,14 @@ class Planta(m.Model):
         qr.add_data(ficha_url)
         qr.make(fit=True)
 
-        # Guardar el QR como imagen
+        # Guardar el QR como imagen en un objeto BytesIO
         qr_img = qr.make_image(fill='black', back_color='white')
-        qr_path = f"qr_codes/{self.nombre}_qr.png"
-        full_path = os.path.join(settings.MEDIA_ROOT, qr_path)
-        
-        # Asegurarse de que la carpeta 'qr_codes' exista
-        qr_folder = os.path.dirname(full_path)
-        os.makedirs(qr_folder, exist_ok=True)
-        
-        # Guardar la imagen y actualizar el modelo
-        qr_img.save(full_path)
-        self.qr_code = qr_path
+
+        # Crear un archivo en memoria
+        qr_image_file = BytesIO()
+        qr_img.save(qr_image_file, format='PNG')
+        qr_image_file.seek(0)  # Rewind the file pointer to the beginning
+
+        # Guardar el archivo en el campo qr_code
+        self.qr_code.save(f"{self.nombre}_qr.png", ContentFile(qr_image_file.read()), save=False)
         self.save()
-
-
-
-
