@@ -68,7 +68,8 @@ h2 {
     font-size: 1.3rem;
 }
 
-.section-one h2 {
+.section-one h3{
+    margin-top: 2rem;
     margin-bottom: 1rem;
 }
 
@@ -201,7 +202,21 @@ h2 {
         padding: 1rem;
     }
 
-    .services, .highlight, .achievements, .about-us {
+    .objective, .achievements{
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .achievements{
+        padding: 0rem;
+    }
+
+    .achievements p{
+        font-size: 1.5rem;
+    }
+
+    .services, .highlight, .about-us {
         padding: 1rem;
     }
 
@@ -210,8 +225,26 @@ h2 {
         margin-bottom: 1rem;
     }
 
+    .highlight-cards {
+        margin-top: 2rem;
+    }
+
+    .highlight p, .about-us p {
+        font-size: 1.5rem;
+        color: #515352;
+    }
+
     .content {
+        text-align: center;
+        padding: 1rem;
         flex-direction: column;
+        margin-bottom: 2rem;
+    }
+
+    .content h1 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        margin-bottom: 3rem;
     }
 
     .image-wrapper {
@@ -221,6 +254,7 @@ h2 {
     .image-wrapper h3, 
     .image-wrapper p {
         padding: 0.5rem;
+        color: #fff;
     }
 
     .image-wrapper h3 {
@@ -236,4 +270,10 @@ h2 {
     .section-two {
         grid-template-columns: 1fr;
     }
+
+    button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
 }

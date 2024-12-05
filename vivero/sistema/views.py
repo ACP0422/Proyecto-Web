@@ -29,6 +29,36 @@ def ficha(request: HttpRequest) -> HttpResponse:
     planta = request.GET.get('planta', None) 
     return render(request, "sistema/Vista_Ficha.html", {'planta': planta})
 
+def obtener_planta(request):
+    print("Obteniendo planta con ID:", request.GET.get('planta'))
+    plantas = Planta.objects.all()
+    for planta in plantas:
+        print(planta.nombre, planta.especie)  # Ajusta los campos que quieres ver
+
+    planta_id = request.GET.get('planta')
+    try:
+        planta = Planta.objects.get(nombre=planta_id)
+        data = {
+            "nombre": planta.nombre,
+            "nombreCientifico": planta.especie,
+            "descripcion": planta.descripcion,
+            "detalles": {
+                "familia": planta.especie,  
+                "luz": planta.tipoluz,         
+                "tamano": planta.tamano,  
+                "riego": "Riego pendiente",    
+                "clima": "Clima pendiente",     
+                "uso": "Uso pendiente",        
+                "cuidados": "Cuidados pendientes" 
+            },
+            "imagenPrincipal": planta.imagen.url if planta.imagen else "",
+            "imagenesRelacionadas": [],  # Agrega lógica si tienes más imágenes relacionadas
+        }
+        return JsonResponse(data)
+    except Planta.DoesNotExist:
+        return JsonResponse({"error": "Planta no encontrada"}, status=404)
+
+
 def registrarPlanta(request: HttpRequest)-> HttpResponse:
     if request.method == 'POST':
         
@@ -153,7 +183,7 @@ def filtrar_productos(request):
                 "id": producto.id,
                 "nombre": producto.nombre,
                 "descripcion": producto.descripcion,
-                "imagen": producto.imagen.url
+                "imagen": producto.imagen
             }
             for producto in productos
         ]

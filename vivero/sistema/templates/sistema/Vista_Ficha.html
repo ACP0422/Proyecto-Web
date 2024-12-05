@@ -30,6 +30,10 @@
     <main>
         <!-- Info de planta -->
         <div class="ficha-planta" id="ficha-planta"></div>
+        {% if planta.qr_code %}
+            <h3>Código QR:</h3>
+            <img src="{{ planta.qr_code.url }}" alt="Código QR de {{ planta.nombre }}">
+        {% endif %}
         <div class="recomendadas">
             <h2>Recomendadas</h2>
             <div class="carrusel-botones">
