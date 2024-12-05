@@ -1,6 +1,6 @@
 
 import base64
-import imghdr
+#import imghdr
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
@@ -35,6 +35,7 @@ def obtener_planta(request):
     for planta in plantas:
         print(planta.nombre, planta.especie)  # Ajusta los campos que quieres ver
 
+
     planta_id = request.GET.get('planta')
     try:
         planta = Planta.objects.get(nombre=planta_id)
@@ -53,6 +54,7 @@ def obtener_planta(request):
             },
             "imagenPrincipal": planta.imagen.url if planta.imagen else "",
             "imagenesRelacionadas": [],  # Agrega lógica si tienes más imágenes relacionadas
+            "qr": planta.qr_code.url if planta.qr_code else ""
         }
         return JsonResponse(data)
     except Planta.DoesNotExist:
@@ -89,6 +91,7 @@ def registrarPlanta(request: HttpRequest)-> HttpResponse:
             descripcion=descripcion,
             imagen=imagen_base64  # Guardamos la imagen como un string base64
         )
+        planta.generar_qr()
 
         return redirect('catálogo') 
 
