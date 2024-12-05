@@ -57,7 +57,7 @@ function actualizarProductos(productos) {
             <div class="producto">
                 <a href="{% url 'ficha' %}?planta=${producto.id}">
                     <div class="image-wrapper">
-                        <img src="data:image/jpeg;base64,${producto.imagen}" alt="${producto.nombre}">
+                        <img src="${producto.imagen}" alt="${producto.nombre}">
                         <h4>${producto.nombre}</h4>
                         <p>${producto.descripcion}</p>
                     </div>

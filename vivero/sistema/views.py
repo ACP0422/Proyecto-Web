@@ -186,7 +186,7 @@ def filtrar_productos(request):
                 "id": producto.id,
                 "nombre": producto.nombre,
                 "descripcion": producto.descripcion,
-                "imagen": producto.imagen
+                "imagen": producto.imagen.url
             }
             for producto in productos
         ]
