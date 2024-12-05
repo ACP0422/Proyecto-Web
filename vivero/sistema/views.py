@@ -33,6 +33,7 @@ def obtener_planta(request):
     print("Obteniendo planta con ID:", request.GET.get('planta'))
     plantas = Planta.objects.all()
     for planta in plantas:
+        planta.generar_qr()
         print(planta.nombre, planta.especie)
 
 
