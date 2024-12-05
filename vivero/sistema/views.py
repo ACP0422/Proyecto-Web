@@ -8,6 +8,7 @@ from django.db import IntegrityError
 from django.http import JsonResponse
 import json
 from django.views.decorators.csrf import csrf_exempt
+from django.db.models import Q
 
 from .models import Planta
 
@@ -83,22 +84,35 @@ def registrarse(request: HttpRequest) -> HttpResponse:
         return render(request, "sistema/Vista_Registrarse.html")
     
 
-@csrf_exempt  # Esto es para pruebas, asegúrate de manejar CSRF correctamente en producción
 def filtrar_productos(request):
     if request.method == "POST":
         data = json.loads(request.body)
-        tipo_de_luz = data.get("tipo_de_luz", [])
-        tamaño = data.get("tamaño", [])
-        especie = data.get("especie", [])
+        
+        tipos_de_luz = data.get("tipo_de_luz", [])
+        tamaños = data.get("tamaño", [])
+        especies = data.get("especie", [])
+
+        print(data.get("tipo_de_luz", []))
+        print(data.get("tamaño", []))
+        print(data.get("especie", []))
 
         # Filtrar productos según los criterios
         productos = Planta.objects.all()
-        if tipo_de_luz:
-            productos = productos.filter(tipoluz=tipo_de_luz)
-        if tamaño:
-            productos = productos.filter(tamano=tamaño)
-        if especie:
-            productos = productos.filter(especie=especie)
+        if tipos_de_luz:
+            # Filtrar usando __iexact para hacer comparaciones insensibles a mayúsculas
+            condiciones_luz = [Q(tipoluz__iexact=tipo) for tipo in tipos_de_luz]
+            productos = productos.filter(*condiciones_luz)
+        if tamaños:
+            # Filtrar usando __iexact
+            condiciones_tamaño = [Q(tamano__iexact=tamaño) for tamaño in tamaños]
+            productos = productos.filter(*condiciones_tamaño)
+        if especies:
+            # Filtrar usando __iexact
+            condiciones_especie = [Q(especie__iexact=especie) for especie in especies]
+            productos = productos.filter(*condiciones_especie)
+
+        # Verificar los valores filtrados
+        print("Productos filtrados:", productos)
 
         # Serializar los datos
         productos_data = [
@@ -112,4 +126,5 @@ def filtrar_productos(request):
         ]
         return JsonResponse({"productos": productos_data}, safe=False)
     return JsonResponse({"error": "Método no permitido"}, status=405)
+
 
