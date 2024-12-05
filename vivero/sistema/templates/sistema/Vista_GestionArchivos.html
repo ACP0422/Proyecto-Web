@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Planta</title>
     <link rel="stylesheet" href="{% static 'estilos/estilosGenerales.css' %}">
+    <link rel="stylesheet" href="{% static 'estilos/forms.css' %}">
+
 </head>
 <body>
     <header>
@@ -32,6 +34,7 @@
 
             <label for="tipo_luz">Tipo de luz:</label>
             <select id="tipo_luz" name="tipo_luz" required>
+                <option value="" disabled selected>Selecciona una opción</option>
                 <option value="semisombra">Semisombra</option>
                 <option value="sombra">Sombra</option>
                 <option value="luz">Luz</option>
@@ -39,6 +42,7 @@
 
             <label for="tamano">Tamaño:</label>
             <select id="tamano" name="tamano" required>
+                <option value="" disabled selected>Selecciona una opción</option>
                 <option value="pequeño">Pequeño</option>
                 <option value="mediano">Mediano</option>
                 <option value="grande">Grande</option>
@@ -69,4 +73,3 @@
     </footer>
 </body>
 </html>
-    

@@ -1,35 +1,35 @@
-{% block body %}
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">Iniciar sesión</h2>
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="{% static 'estilos/estilosGenerales.css' %}">
+    <link rel="stylesheet" href="{% static 'estilos/manejoSesiones.css' %}">
 
-        <!-- Mensajes de error o éxito -->
-        {% if message %}
-            <div class="alert alert-warning">
-                {{ message }}
-            </div>
+</head>
+<body>
+    <div class="container">
+        <h2>Iniciar Sesión</h2>
+        {% if mensaje %}
+            <p class="message">{{ mensaje }}</p>
         {% endif %}
-
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <form action="{% url 'iniciar_sesión' %}" method="post">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="nombre_usuario">Usuario</label>
-                        <input autofocus class="form-control" type="text" name="nombre_usuario" id="nombre_usuario" placeholder="Ingresa tu usuario" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contrasena">Contraseña</label>
-                        <input class="form-control" type="contrasena" name="contrasena" id="contrasena" placeholder="Ingresa tu contraseña" required>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-block mt-4">Iniciar sesión</button>
-                </form>
-
-                <div class="mt-3 text-center">
-                    ¿No cuentas con acceso? <a href="{% url 'registrarse' %}">Regístrate aquí.</a>
-                </div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nombre_usuario">Usuario</label>
+                <input type="text" id="nombre_usuario" name="nombre_usuario" required>
             </div>
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+            </div>
+            <button type="submit" class="btn">Iniciar Sesión</button>
+        </form>
+        <div class="link">
+            <p>¿No tienes cuenta? <a href="{% url 'registrarse' %}">Regístrate aquí</a></p>
         </div>
     </div>
-{% endblock %}
+</body>
+</html>
