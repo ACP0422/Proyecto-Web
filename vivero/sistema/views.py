@@ -1,6 +1,5 @@
 
 import base64
-#import imghdr
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
@@ -74,21 +73,13 @@ def registrarPlanta(request: HttpRequest)-> HttpResponse:
         if not all([nombre_planta, tipo_luz, tamano, especie, descripcion]):
             raise ValidationError('Todos los campos son obligatorios.')
 
-        # Validar tipo de archivo
-        tipo_imagen = imghdr.what(imagen)
-        if tipo_imagen not in ['jpeg', 'png', 'gif']:
-            raise ValidationError('Solo se permiten imágenes JPEG, PNG o GIF.')
-
-        # Codificar la imagen en Base64
-        imagen_base64 = base64.b64encode(imagen.read()).decode('utf-8')
-
         planta = Planta.objects.create(
             nombre=nombre_planta,
             tipoluz=tipo_luz,
             tamano=tamano,
             especie=especie,
             descripcion=descripcion,
-            imagen=imagen_base64  # Guardamos la imagen como un string base64
+            imagen=imagen # Guardamos la imagen como un string base64
         )
         planta.generar_qr()
 
