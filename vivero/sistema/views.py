@@ -53,8 +53,7 @@ def obtener_planta(request):
                 "cuidados": "Cuidados pendientes" 
             },
             "imagenPrincipal": planta.imagen.url if planta.imagen else "",
-            "imagenesRelacionadas": [],  # Agrega lógica si tienes más imágenes relacionadas
-            "qr": planta.qr_code.url if planta.qr_code else ""
+            "imagenesRelacionadas": [],
         }
         return JsonResponse(data)
     except Planta.DoesNotExist:

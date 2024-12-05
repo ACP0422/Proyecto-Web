@@ -138,7 +138,6 @@ async function cargarPlanta() {
                 <div class="imagenes-relacionadas">
                     ${planta.imagenesRelacionadas.map(imagen => `<img src="${imagen}" class="imagen-pequena">`).join('')}
                 </div>
-                <img src="${planta.qr}" class="imagen-principal">
             </div>
         `;
 
