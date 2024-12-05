@@ -5,6 +5,11 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.db import IntegrityError
+from django.http import JsonResponse
+import json
+from django.views.decorators.csrf import csrf_exempt
+
+from .models import Planta
 
 
 
@@ -76,3 +81,35 @@ def registrarse(request: HttpRequest) -> HttpResponse:
         return HttpResponseRedirect(reverse("índice"))
     else:
         return render(request, "sistema/Vista_Registrarse.html")
+    
+
+@csrf_exempt  # Esto es para pruebas, asegúrate de manejar CSRF correctamente en producción
+def filtrar_productos(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        tipo_de_luz = data.get("tipo_de_luz", [])
+        tamaño = data.get("tamaño", [])
+        especie = data.get("especie", [])
+
+        # Filtrar productos según los criterios
+        productos = Planta.objects.all()
+        if tipo_de_luz:
+            productos = productos.filter(tipoluz=tipo_de_luz)
+        if tamaño:
+            productos = productos.filter(tamano=tamaño)
+        if especie:
+            productos = productos.filter(especie=especie)
+
+        # Serializar los datos
+        productos_data = [
+            {
+                "id": producto.id,
+                "nombre": producto.nombre,
+                "descripcion": producto.descripcion,
+                "imagen": producto.imagen.url
+            }
+            for producto in productos
+        ]
+        return JsonResponse({"productos": productos_data}, safe=False)
+    return JsonResponse({"error": "Método no permitido"}, status=405)
+

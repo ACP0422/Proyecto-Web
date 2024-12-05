@@ -1,11 +1,4 @@
-function toggleDetalles(button) {
-    const checkboxes = button.parentElement.nextElementSibling; 
-    checkboxes.classList.toggle('active'); 
-    button.classList.toggle('active'); 
-}
-
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll(".option").forEach(option => {
         option.addEventListener("change", filtrarProductos);
     });
@@ -23,34 +16,41 @@ function filtrarProductos() {
             const categoriaFiltro = opcion.name;
             const valorFiltro = opcion.value.toLowerCase();
 
-            if (categoriaFiltro === "tipo_de_luz") {
-                filtrosElegidos.tipo_de_luz.push(valorFiltro);
-            } else if (categoriaFiltro === "tamaño") {
-                filtrosElegidos.tamaño.push(valorFiltro);
-            } else if (categoriaFiltro === "especie") {
-                filtrosElegidos.especie.push(valorFiltro);
-            }
+            filtrosElegidos[categoriaFiltro].push(valorFiltro);
         }
     });
 
-    const sinFiltrosElegidos = filtrosElegidos.tipo_de_luz.length === 0 && 
-                              filtrosElegidos.tamaño.length === 0 && 
-                              filtrosElegidos.especie.length === 0;
+    fetch("filtrarProductos/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "same-origin",
+        body: JSON.stringify(filtrosElegidos)
+    })
+    .then(response => response.json())
+    .then(data => {
+        actualizarProductos(data.productos);
+    })
+    .catch(error => console.error('Error:', error));
+}
 
-    document.querySelectorAll(".producto").forEach(product => {
-        if (sinFiltrosElegidos) {
-            product.style.display = "block";
-            return;
-        }
+function actualizarProductos(productos) {
+    const contenedorProductos = document.querySelector(".productos");
+    contenedorProductos.innerHTML = ""; // Limpiar los productos actuales
 
-        const productoTipoDeLuz = product.querySelector('input[name="tipo_de_luz"]')?.value.toLowerCase();
-        const productoTamaño = product.querySelector('input[name="tamaño"]')?.value.toLowerCase();
-        const productoEspecie = product.querySelector('input[name="especie"]')?.value.toLowerCase();
-
-        const coincideTipoDeLuz = filtrosElegidos.tipo_de_luz.includes(productoTipoDeLuz);
-        const coincideTamaño = filtrosElegidos.tamaño.includes(productoTamaño);
-        const coincideEspecie = filtrosElegidos.especie.includes(productoEspecie);
-
-        product.style.display = (coincideTipoDeLuz || coincideTamaño || coincideEspecie) ? "block" : "none";
+    productos.forEach(producto => {
+        const productoElemento = `
+            <div class="producto">
+                <a href="/ficha/${producto.id}">
+                    <div class="image-wrapper">
+                        <img src="${producto.imagen}" alt="${producto.nombre}">
+                        <h4>${producto.nombre}</h4>
+                        <p>${producto.descripcion}</p>
+                    </div>
+                </a>
+            </div>
+        `;
+        contenedorProductos.innerHTML += productoElemento;
     });
 }
