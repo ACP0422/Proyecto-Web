@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{% static 'estilos/estilosGenerales.css' %}">
     
     <script src="{% static 'script/catalogo.js' %}"></script>
+    <script>
+        const csrfToken = '{{ csrf_token }}';
+    </script>
 </head>
 <body>
     <header>
@@ -60,7 +63,7 @@
                         </button>
                     </div>
                     <div class="checkboxes">
-                        <label><input class="option" type="checkbox" name="tamaño" value="pequeño"> Pequeño</label>
+                        <label><input class="option" type="checkbox" name="tamaño" value="pequeno"> Pequeño</label>
                     </div>
                 </div>
             
@@ -82,96 +85,6 @@
             
             <!--Productos-->
             <div class="productos">
-                <div class="producto">
-                    <input type="hidden" name="tipo_de_luz" value="semisombra">
-                    <input type="hidden" name="especie" value="araceae">
-                    <!-- Enlace con parámetro en la URL -->
-                    <a href="{% url 'ficha' %}?planta=monstera">
-                        <div class="image-wrapper">
-                            <img src="{% static 'recursos/plant.png' %}">
-                            <h4>Monstera Deliciosa</h4>
-                            <p>Semisombra/Araceae.</p>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="producto">
-                    <input type="hidden" name="tipo_de_luz" value="sombra">
-                    <input type="hidden" name="tamaño" value="pequeño">
-                
-                    <!-- Enlace con parámetro en la URL -->
-                    <a href="{% url 'ficha' %}?planta=loto">
-                        <div class="image-wrapper">
-                            <img src="{% static 'recursos/plant.png' %}">
-                            <h4>Flor de Loto</h4>
-                            <p>Sombra/Pequeño</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="producto">
-                    <a href="{% url 'ficha' %}">
-                    <div class="image-wrapper">
-                    <img src="{% static 'recursos/plant.png' %}">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
-                    </div></a>
-                </div>
-
-                <div class="producto">
-                    <a href="{% url 'ficha' %}">
-                    <div class="image-wrapper">
-                    <img src="{% static 'recursos/plant.png' %}">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
-                    </div></a>
-                </div>
-
-                <div class="producto">
-                    <a href="{% url 'ficha' %}">
-                    <div class="image-wrapper">
-                    <img src="{% static 'recursos/plant.png' %}">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
-                    </div></a>
-                </div>
-
-                <div class="producto">
-                    <a href="{% url 'ficha' %}">
-                    <div class="image-wrapper">
-                    <img src="{% static 'recursos/plant.png' %}">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
-                    </div></a>
-                </div>
-
-                <div class="producto">
-                    <a href="{% url 'ficha' %}">
-                    <div class="image-wrapper">
-                    <img src="{% static 'recursos/plant.png' %}">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
-                    </div></a>
-                </div>
-
-                <div class="producto">
-                    <a href="{% url 'ficha' %}">
-                    <div class="image-wrapper">
-                    <img src="{% static 'recursos/plant.png' %}">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
-                    </div></a>
-                </div>
-
-                <div class="producto">
-                    <a href="{% url 'ficha' %}">
-                    <div class="image-wrapper">
-                    <img src="{% static 'recursos/plant.png' %}">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit.</p>
-                    </div></a>
-                </div>
-                
             </div>
         </div>
     </main>
