@@ -1,6 +1,6 @@
 
 import base64
-from io import BytesIO
+import imghdr
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
@@ -29,6 +29,36 @@ def ficha(request: HttpRequest) -> HttpResponse:
     planta = request.GET.get('planta', None) 
     return render(request, "sistema/Vista_Ficha.html", {'planta': planta})
 
+def obtener_planta(request):
+    print("Obteniendo planta con ID:", request.GET.get('planta'))
+    plantas = Planta.objects.all()
+    for planta in plantas:
+        print(planta.nombre, planta.especie)  # Ajusta los campos que quieres ver
+
+    planta_id = request.GET.get('planta')
+    try:
+        planta = Planta.objects.get(nombre=planta_id)
+        data = {
+            "nombre": planta.nombre,
+            "nombreCientifico": planta.especie,
+            "descripcion": planta.descripcion,
+            "detalles": {
+                "familia": planta.especie,  
+                "luz": planta.tipoluz,         
+                "tamano": planta.tamano,  
+                "riego": "Riego pendiente",    
+                "clima": "Clima pendiente",     
+                "uso": "Uso pendiente",        
+                "cuidados": "Cuidados pendientes" 
+            },
+            "imagenPrincipal": planta.imagen.url if planta.imagen else "",
+            "imagenesRelacionadas": [],  # Agrega lógica si tienes más imágenes relacionadas
+        }
+        return JsonResponse(data)
+    except Planta.DoesNotExist:
+        return JsonResponse({"error": "Planta no encontrada"}, status=404)
+
+
 def registrarPlanta(request: HttpRequest)-> HttpResponse:
     if request.method == 'POST':
         
@@ -43,13 +73,13 @@ def registrarPlanta(request: HttpRequest)-> HttpResponse:
         if not all([nombre_planta, tipo_luz, tamano, especie, descripcion]):
             raise ValidationError('Todos los campos son obligatorios.')
 
-        # Convertir la imagen a base64 si existe
-        imagen_base64 = None
-        if imagen:
-            # Leer la imagen en binario
-            image_data = imagen.read()
-            # Convertirla a base64
-            imagen_base64 = base64.b64encode(image_data).decode('utf-8')
+        # Validar tipo de archivo
+        tipo_imagen = imghdr.what(imagen)
+        if tipo_imagen not in ['jpeg', 'png', 'gif']:
+            raise ValidationError('Solo se permiten imágenes JPEG, PNG o GIF.')
+
+        # Codificar la imagen en Base64
+        imagen_base64 = base64.b64encode(imagen.read()).decode('utf-8')
 
         planta = Planta.objects.create(
             nombre=nombre_planta,
