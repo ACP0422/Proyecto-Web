@@ -168,5 +168,9 @@ a:hover {
     .menu-icon {
         display: none; 
     }
+
+    .button {
+        display: none;
+    }
 }
 

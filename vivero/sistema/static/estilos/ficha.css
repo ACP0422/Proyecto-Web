@@ -210,13 +210,22 @@
     .ficha-planta {
         flex-direction: column;
         align-items: center;
-        padding: 1rem; 
+        padding: 0rem; 
+    }
+
+    .imagen-principal{
+        width: 20rem;
+    }
+
+    .detalles.show{
+        display: contents;
     }
 
     .imagen-planta-contenedor,
     .descripcion-planta {
         max-width: 100%;
         padding: 1rem;
+        text-align: center;
     }
 
     .descripcion-planta h1 {
@@ -225,6 +234,7 @@
 
     .descripcion-planta p {
         font-size: 1rem;
+        text-align: center;
     }
 
     .productos-recomendados {
@@ -243,11 +253,19 @@
     }
 
     .carousel-container {
-        padding: 1rem; 
+        padding: 0; 
     }
 
     .image-wrapper {
-        height: 20rem; 
+        height: 15rem;
+    }
+
+    .image-wrapper h4{
+        font-size: 1.2rem;
+    }
+
+    .image-wrapper p{
+        font-size: 0.8rem;
     }
 
     .image-wrapper h4,
@@ -256,6 +274,57 @@
     }
 
     .recomendadas h2 {
+        text-align: center;
         font-size: 1.8rem;
+    }
+
+    .recomendadas {
+        padding: 0; 
+    }
+
+    .carrusel-botones{
+        display: none;
+    }
+
+
+    .detalles ul  li, .detalles ul li span {
+        color: #fff;
+    }
+    ul#detalles-content {
+        background-color: #002E5F; 
+        margin-bottom: 2rem;
+    }
+}
+
+
+@media print{
+    body{
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    button, footer, .recomendadas{
+        display: none;
+    }
+
+    .boton-descargar-qr{
+        display: none;
+    }
+
+    #detalles-content {
+        max-height: none;
+        overflow: visible;
+    }
+
+    .detalles ul {
+        display: block;
+    }
+
+    .detalles ul li {
+        display: block;
+    }
+
+    .flecha {
+        display: none;
     }
 }
