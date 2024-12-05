@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="{% static 'estilos/estilosGenerales.css' %}">
+    <link rel="stylesheet" href="{% static 'estilos/manejoSesiones.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <h2>Registrarse</h2>
+        {% if mensaje %}
+            <p class="message">{{ mensaje }}</p>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nombre_usuario">Nombre de Usuario</label>
+                <input type="text" id="nombre_usuario" name="nombre_usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmacion">Confirmar Contraseña</label>
+                <input type="password" id="confirmacion" name="confirmacion" required>
+            </div>
+            <button type="submit" class="btn">Registrarse</button>
+        </form>
+        <div class="link">
+            <p>¿Ya tienes cuenta? <a href="{% url 'iniciar_sesión' %}">Inicia Sesión aquí</a></p>
+        </div>
+    </div>
+</body>
+</html>

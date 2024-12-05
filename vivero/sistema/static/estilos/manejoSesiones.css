@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #002E5F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    background: #F9F9F9;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 30rem;
+}
+.container h2 {
+    text-align: center;
+    color: #002E5F;
+    margin-bottom: 1rem;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #002E5F;
+}.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #002E5F;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+.form-group input:focus {
+    border-color: #002E5F;
+    outline: none;
+}
+.btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #C79316;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+.btn:hover {
+    background: #E7AC24;
+}
+.message {
+    text-align: center;
+    color: #A94442;
+    margin-bottom: 1rem;
+}
+.link {
+    text-align: center;
+    margin-top: 1rem;
+}
+.link a {
+    color: #C79316;
+    text-decoration: none;
+}
+.link a:hover {
+    text-decoration: underline;
+}
