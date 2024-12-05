@@ -14,6 +14,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 from .models import Planta
+from django.http import JsonResponse, Http404, FileResponse
 
 def indice(request: HttpRequest) -> HttpResponse:
     return render(request, "sistema/Vista_Indice.html")
@@ -53,11 +54,24 @@ def obtener_planta(request):
             },
             "imagenPrincipal": planta.imagen.url if planta.imagen else "",
             "imagenesRelacionadas": [],
-            "qr": planta.qr_code.url if planta.qr_code else ""
+            "qr": planta.qr_code.url if planta.qr_code else "",
+            "id": planta.id
         }
         return JsonResponse(data)
     except Planta.DoesNotExist:
         return JsonResponse({"error": "Planta no encontrada"}, status=404)
+    
+def descargar_qr(request, planta_id):
+    try:
+        planta = Planta.objects.get(id=planta_id)
+        if not planta.qr_code:
+            raise Http404("El QR no está disponible para esta planta.")
+
+        # Retornar el archivo como respuesta
+        response = FileResponse(planta.qr_code.open(), as_attachment=True, filename=f"{planta.nombre}_QR.png")
+        return response
+    except Planta.DoesNotExist:
+        raise Http404("Planta no encontrada.")
 
 
 def registrarPlanta(request: HttpRequest)-> HttpResponse:

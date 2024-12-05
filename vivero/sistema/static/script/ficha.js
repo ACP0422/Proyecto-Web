@@ -138,6 +138,10 @@ async function cargarPlanta() {
                 <div class="imagenes-relacionadas">
                     ${planta.imagenesRelacionadas.map(imagen => `<img src="${imagen}" class="imagen-pequena">`).join('')}
                 </div>
+                <!-- Download Button -->
+                <a href="/descargar_qr/${planta.id}/" class="boton-descargar-qr">
+                    <button>Descargar QR</button>
+                </a>
             </div>
         `;
 

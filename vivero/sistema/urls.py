@@ -15,4 +15,5 @@ urlpatterns = [
     path("cerrarSesion/", views.cerrarSesion, name="cerrar_sesión"),
     path("registrarse/", views.registrarse, name="registrarse"),
     path('catalogo/filtrarProductos/', views.filtrar_productos, name='filtrar_productos'),
+    path('descargar_qr/<int:planta_id>/', views.descargar_qr, name='descargar_qr'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
