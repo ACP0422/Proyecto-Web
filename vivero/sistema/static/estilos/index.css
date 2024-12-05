@@ -277,3 +277,32 @@ h2 {
     }
 
 }
+
+@media print {
+
+    h1, h2, h3{
+        color:#002E5F;
+    }
+
+    p{
+        color: black;
+    }
+
+    .hero, .services, .achievements{
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero button {
+        display: none;
+    }
+    
+    header, footer, .nav, .highlight, .about-us {
+        display: none;
+    }
+
+    label .menu-icon {
+        display: none;
+    }
+
+}  

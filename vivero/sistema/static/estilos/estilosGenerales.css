@@ -159,3 +159,14 @@ a:hover {
     }
 
 }
+
+@media print{
+    #menu-toggle {
+        display: none;
+    }
+    
+    .menu-icon {
+        display: none; 
+    }
+}
+

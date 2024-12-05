@@ -215,3 +215,31 @@ h2 {
         font-size: 1.25rem;
     }
 }
+
+@media print {
+    
+    header, footer, .nav, .mapa {
+        display: none;
+    }
+
+    .principal, .info, .objetivo{
+        padding: 0;
+    }
+
+
+    .service-card, .service-cards {
+        padding: 0;
+        margin: 0;
+    }
+
+    h1, h2, h3{
+        color:#002E5F;
+    }
+
+    p{
+        color: black;
+    }
+
+    
+
+}  
