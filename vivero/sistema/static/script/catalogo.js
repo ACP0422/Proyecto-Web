@@ -55,7 +55,7 @@ function actualizarProductos(productos) {
     productos.forEach(producto => {
         const productoElemento = `
             <div class="producto">
-                <a href="{% url 'ficha' %}?planta=${producto.id}">
+                <a href="ficha?planta=${producto.nombre}">
                     <div class="image-wrapper">
                         <img src="${producto.imagen}" alt="${producto.nombre}">
                         <h4>${producto.nombre}</h4>
