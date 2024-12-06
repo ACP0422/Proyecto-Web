@@ -130,7 +130,6 @@ async function cargarPlanta() {
                         <li><span>Cuidados especiales</span> ${planta.detalles.cuidados}</li>
                     </ul>
                 </div>
-                <button><a href="#">Adoptar</a></button>
             </div>
 
             <div class="imagen-planta-contenedor">
